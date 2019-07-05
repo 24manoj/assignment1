@@ -12,7 +12,7 @@ public class Quadratic {
 		double a=sc.nextDouble();
 		double b=sc.nextDouble();
 		double c=sc.nextDouble();
-		double delta = (b*b) - 4*a*c;
+		double delta = (Math.pow(b,2)) - 4*a*c;
 		//System.out.println(delta);
 		if(delta>0) {
 		double x1=  ( (-b + Math.sqrt(delta))/(2*a));

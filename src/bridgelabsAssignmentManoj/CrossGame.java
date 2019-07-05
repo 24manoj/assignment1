@@ -52,7 +52,7 @@ if(bord[index1][index2]==0 ) {
 }
 else
 {
-	System.out.println("SRY>>SLOT FILLED >>>>ReStart the game");
+	System.out.println("SRY>>SLOT FILLED >>>>ReStart the game0");
 	CrossGame.c--;
 	System.exit(0);
 	//CrossGame.h=true;
