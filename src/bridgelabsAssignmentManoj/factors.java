@@ -17,7 +17,7 @@ public class factors {
 	for(int i=2;i*i<=n*n;i++) {
 		while(n%i==0) {
 			
-			System.out.println(i);
+			System.out.print(i+" " );
 			n/=i;
 		}
 	}

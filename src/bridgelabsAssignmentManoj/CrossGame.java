@@ -4,7 +4,7 @@ import java.util.*;
 
 class cross{
 	static int [][] bord=new int [3][3];
-	int count=0;
+	static int count=0;
 	//int h=0;
 	
 	
@@ -18,7 +18,7 @@ public  void initial() {
 	}
 	
 	
-public void insert(int  index1, int index2,int element) {
+public static void insert(int  index1, int index2,int element) {
 	int res;
 	
 if(bord[index1][index2]==0 ) {
@@ -59,10 +59,25 @@ else
 	//CrossGame.ele=element;
 
 }
+
 	
 }
 
-public int check(int element) {
+public static void system() { 
+	Random r=new Random();
+	int index1,index2;
+	index1=r.nextInt(3);
+	index2=r.nextInt(3);
+	if(bord[index1][index2]!=0) {
+		system();
+	}
+	System.out.println("System used slot"+index1+" "+index2+" ");
+
+	insert(index1, index2, 2);
+
+}
+
+public static int check(int element) {
 	for(int i=0;i<3;i++){
 	
 		if(bord[i][0]== element &&bord[i][1]==element&&bord[i][2]==element )
@@ -102,12 +117,9 @@ public class CrossGame {
 			
 			if(c<8) {
 				
-				System.out.println("Enter palyer b[0-2][0-2]");
-				index1=sc.nextInt();
-				index2=sc.nextInt();
-				c++;
-				cr.insert(index1, index2, 2);
-			}
+				//System.out.println("Enter palyer b[0-2][0-2]");
+				cr.system();
+							}
 			
 		}if(c==9) {
 			System.out.println("Out of Moves...bye");
@@ -117,4 +129,5 @@ public class CrossGame {
 	}
 
 
+	
 }
