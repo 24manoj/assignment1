@@ -3,48 +3,36 @@ package bridgelabsAssignmentManoj;
 import java.util.*;
 
 class cross{
-	static int [][] bord=new int [3][3];
+	static char [][] bord=new char [3][3];
 	static int count=0;
-	//int h=0;
+
 	
 	
 	
 public  void initial() {
 		for(int i=0;i<3;i++) {
 			for(int j=0;j<3;j++) {
-				bord[i][j]=0;
+				bord[i][j]='!';
 			}
 		}
 	}
 	
 	
-public static void insert(int  index1, int index2,int element) {
+public static void insert(int  index1, int index2,char element) {
 	int res;
 	
-if(bord[index1][index2]==0 ) {
+if(bord[index1][index2]=='!') {
 	
 	bord[index1][index2]=element;
 	count++;
 	res=check(element);
 	if(res==element) {
-		for(int i=0;i<3;i++) {
-			for(int j=0;j<3;j++) {
-				System.out.print(bord[i][j]+" ");
-				
-			}
-			System.out.println("\n");
-		}
+		print();
 		System.out.println("Player "+element+"  wins");
 		System.exit(0);
 	}//end if
 	if(count==9 && res==3) {
-		for(int i=0;i<3;i++) {
-			for(int j=0;j<3;j++) {
-				System.out.println(bord[i][j]+" ");
-				
-			}
-			System.out.println("\n");
-		}
+		print();
 		System.out.println("U have ..Meet with Tie!!!!!!");
 		System.exit(0);
 		
@@ -52,28 +40,33 @@ if(bord[index1][index2]==0 ) {
 }
 else
 {
+	print();
 	System.out.println("SRY>>SLOT FILLED >>>>ReStart the game0");
 	CrossGame.c--;
 	System.exit(0);
-	//CrossGame.h=true;
-	//CrossGame.ele=element;
+}
 
 }
 
-	
-}
 
+public static void print() {
+	for(int i=0;i<3;i++) {
+		for(int j=0;j<3;j++) {
+			System.out.print(bord[i][j]+" ");
+		}
+		System.out.print("\n");
+	}
+}
 public static void system() { 
 	Random r=new Random();
 	int index1,index2;
 	index1=r.nextInt(3);
 	index2=r.nextInt(3);
-	if(bord[index1][index2]!=0) {
+if(bord[index1][index2]!='!') {
 		system();
 	}
-	System.out.println("System used slot"+index1+" "+index2+" ");
-
-	insert(index1, index2, 2);
+	insert(index1, index2,'o');
+print();
 
 }
 
@@ -113,11 +106,11 @@ public class CrossGame {
 			index1=sc.nextInt();
 			index2=sc.nextInt();
 			c++;
-			cr.insert(index1, index2, 1);
+			cr.insert(index1, index2,'x');
 			
 			if(c<8) {
 				
-				//System.out.println("Enter palyer b[0-2][0-2]");
+				
 				cr.system();
 							}
 			
